@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gestión de Usuarios</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/style.css') }}">
+</head>
+<body>
+    <p class="user">Hola, {{ username }}</p>
+    <button  class="logout-button" onclick="window.location.href='{{ url_for('logout') }}'">cerrar sesion</button>
+    <h1>Gestión de Usuarios
+        <a href="{{ url_for('index') }}"><button>Volver al inicio</button></a>
+    </h1>
+
+    <div class="search-bar">
+        <form method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <select name="rol">
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+            </select>
+            <button type="submit">Agregar Usuario</button>
+        </form>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Rol</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in usuarios %}
+            <tr>
+                    <td>
+                        <form class="form-inline" action="{{ url_for('edit_usuario', id=usuario.username) }}" method="POST"></form>
+                        <input type="text" name="username" value="{{ usuario.username }}" required>
+                    </td>
+                    <td>
+                        <select name="rol">
+                            <option value="admin" {% if usuario.rol == 'admin' %}selected{% endif %}>Admin</option>
+                            <option value="user" {% if usuario.rol == 'user' %}selected{% endif %}>User</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button type="submit">Editar</button>
+                </form>
+                <form class="form-inline" action="{{ url_for('delete_usuario', id=usuario.username) }}" method="POST" style="display:inline;">
+                    <button type="submit">Eliminar</button>
+                </form>
+                    </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Librería El Gran Poeta</title>
+    <link rel="stylesheet" href="/static/estilos/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="/static/images/logo.png" alt="Logo de Librería El Gran Poeta" class="logo" >
+            <h1>Bienvenido a Librería El Gran Poeta</h1>
+            <div class="social-icons">
+                <a href="#"><img src="/static/images/logos/twitter.jpeg" alt="Twitter"></a>
+                <a href="#"><img src="/static/images/logos/youtube.png" alt="YouTube"></a>
+                <a href="#"><img src="/static/images/logos/instagram.webp" alt="Instagram"></a>
+                <a href="#"><img src="/static/images/logos/amazon.png" alt="Amazon"></a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="login-container">
+            <h2>REGISTRARSE</h2>
+            <form method="POST" action="{{ url_for('registro') }}">
+                <label for="username">USUARIO</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">CONTRASEÑA</label>
+                <input type="password" id="password" name="password" required>
+                <label for="rol" >ROL</label>
+                <button type="submit">Registrarse</button>
+            </form>
+            <p>¿Ya tienes una cuenta? <a href="{{ url_for('login') }}">Inicia sesión</a></p>
+        </div>
+    </main>
+    <footer>
+        <a href="#">Política de Privacidad</a> | <a href="#">Términos de Servicio</a>
+    </footer>
+</body>
+</html>

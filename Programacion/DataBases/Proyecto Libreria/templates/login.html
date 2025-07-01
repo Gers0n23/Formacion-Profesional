@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librería El Gran Poeta - Inicio de Sesión</title>
+    <link rel="stylesheet" href="/static/estilos/styles.css">
+</head>
+<body>
+   
+    <header>
+        <div class="header-content">
+            <img src="/static/images/logo.png" alt="Logo de Librería El Gran Poeta" class="logo" >
+            <h1>Bienvenido a Librería El Gran Poeta</h1>
+            <div class="social-icons">
+                <a href="#"><img src="/static/images/logos/twitter.jpeg" alt="Twitter"></a>
+                <a href="#"><img src="/static/images/logos/youtube.png" alt="YouTube"></a>
+                <a href="#"><img src="/static/images/logos/instagram.webp" alt="Instagram"></a>
+                <a href="#"><img src="/static/images/logos/amazon.png" alt="Amazon"></a>
+            </div>
+        </div>
+        <p></p>
+    </header>
+    <main>
+        <div class="login-container">
+            <h2>INICIAR SESIÓN</h2>
+            <p>¿Es Tu Primera Vez? <a href="{{ url_for('registro') }}">Regístrate</a></p>
+            <form method="POST" action="{{ url_for('login') }}">
+                <label for="username">USUARIO</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">CONTRASEÑA</label>
+                <input type="password" id="password" name="password" required>
+                <a href="#">
+                    {% if error %}
+                    <p style="color: red;">{{ error }}</p>
+                    {% endif %}
+                    ¿Olvidó Su Contraseña?</a>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+            <p>O Conéctate Con</p>
+            <div class="social-login">
+                <a href="#"><img src="/static/images/logos/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="/static/images/logos/google.png" alt="Google"></a>
+            </div>
+        </div>
+        
+    </main>
+    <footer>
+        <a href="#">Política de Privacidad</a> | <a href="#">Términos de Servicio</a>
+    </footer>
+</body>
+</html>

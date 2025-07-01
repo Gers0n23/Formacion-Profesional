@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/style.css') }}">
+    <p class="user">Hola, {{ username }}</p>
+    <button  class="logout-button" onclick="window.location.href='{{ url_for('logout') }}'">cerrar sesion</button>
+
+</head> 
+
+<body>
+    <h1>Sistema de Gestión - Librería el gran Poeta</h1> 
+    <img src="{{ url_for('static', filename='images/libreria.jpg') }}" alt="Descripción de la imagen" height="120px" width="1800px">
+
+    
+    <!-- Botones de enlaces directos -->
+    <div class="btn-container">
+        <button onclick="window.location.href='{{ url_for('manage_libros') }}'">Libros</button>
+        <button onclick="window.location.href='{{ url_for('manage_autores') }}'">Autores</button>
+        <button onclick="window.location.href='{{ url_for('manage_clientes') }}'">Clientes</button>
+        <button onclick="window.location.href='{{ url_for('manage_pedidos') }}'">Pedidos</button>
+        <button onclick="window.location.href='{{ url_for('manage_usuarios') }}'">Usuarios</button>
+    </div>
+
+    <div class="search-bar">
+        <form action="/buscar" method="post">
+        <input type="text" name="busqueda" placeholder="Buscar por título...">
+        <input type="submit" value="Buscar">
+        </form>
+    </div>
+    
+    <!-- Resumen -->
+    <table>
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Nacionalidad</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Q vendida</th>
+                <th>Total ventas $</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for libro in libros %}
+            <tr>
+                <td>{{ libro.titulo }}</td>
+                {% if 'autor_info' in libro and 'nombre' in libro.autor_info %}
+                    <td>{{ libro.autor_info.nombre }}</td>
+                {% else %}
+                    <td>No hay información del autor disponible.</td>
+                {% endif %}
+                {% if 'autor_info' in libro and 'nacionalidad' in libro.autor_info %}
+                    <td>{{ libro.autor_info.nacionalidad }}</td>
+                {% else %}
+                    <td>No hay información de la nacionalidad disponible.</td>
+                {% endif %}
+                <td>{{ libro.precio}}</td>
+                <td>{{ libro.stock }}</td>
+                <td>{{ libro.cantidad_pedidos }}</td>
+                <td>{{ libro.valor_total_pedidos}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

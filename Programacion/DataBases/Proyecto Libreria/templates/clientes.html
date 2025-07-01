@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clientes</title>
+    <!-- Importar hoja de estilos CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/style.css') }}">
+
+</head>
+<body>
+    <p class="user">Hola, {{ username }}</p>
+    <button  class="logout-button" onclick="window.location.href='{{ url_for('logout') }}'">cerrar sesion</button>
+    <h1>Clientes
+        <a href="{{ url_for('index') }}"><button>Volver al inicio</button></a>
+    </h1>
+    <!-- Formulario para agregar un nuevo cliente -->
+
+    <div class="search-bar">
+        <form action="{{ url_for('manage_clientes') }}" method="POST">
+            <input type="text" name="nombre" placeholder="Nombre">
+            <input type="text" name="id" placeholder="ID del Cliente">
+            <input type="email" name="email" placeholder="Email">
+            <button type="submit">Agregar Cliente</button>
+        </form>
+    </div>
+    
+    <!-- Tabla de clientes existentes -->
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>ID del Cliente</th>
+                <th>Email</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+                <tr>
+                    <form class="form-inline" action="{{ url_for('edit_cliente', id=cliente._id) }}" method="POST">
+                        <td>
+                            <input type="text" name="nombre" value="{{ cliente.nombre }}">
+                        </td>
+                        <td>
+                            <input type="text" name="id" readonly value="{{ cliente._id }}">
+                        </td>
+                        <td>
+                            <input type="email" name="email" value="{{ cliente.email }}">
+                        </td>
+                        <td>
+                            <button type="submit">Editar</button>
+                    </form>
+                    <form class="form-inline" action="{{ url_for('delete_cliente', id=cliente._id) }}" method="POST" style="display:inline;">
+                        <button type="submit">Eliminar</button>
+                    </form>
+                        </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

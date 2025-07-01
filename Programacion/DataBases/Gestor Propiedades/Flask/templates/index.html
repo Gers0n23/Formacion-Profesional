@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body> 
+    <div class="container">
+        <div class="header">
+            <h1>Gestor de Propiedades "La Guarida"</h1>
+    </div>
+    
+    <Section class="header-section">
+        <i class="fas fa-plus-circle" id="addButton" style="font-size: 30px;
+        cursor: pointer;
+        padding-top: 6px; 
+        padding-right: 10px; 
+        color: rgb(22, 22, 22);"></i>
+        
+        <div class="center-container">
+            <form action="/buscar" method="POST" class="search-form">
+                <input type="text" name="name" class="form-input">
+                <button type="submit" class="form-button">Buscar Propiedad</button>
+            </form>
+        </div>
+    </Section>
+    
+
+
+    <ul>
+        {% if propiedades %}
+    <!-- Aquí va tu tabla de propiedades filtradas -->
+    <table>
+        <tr>
+            <th>Nombre Propiedad</th>
+            <th>Tipo</th>
+            <th>Comuna Ubicacion</th>
+            <th>Precio</th>
+            <th>Metros Cuadrados</th>
+            <th>Habitaciones</th>
+            <th>Baños</th>
+            <th>Estacionamientos</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+        {% for datos in propiedades %}
+        <tr>
+            <td>{{ datos['nombrePropiedad'] }}</td>
+            <td>{{ datos['tipo'] }}</td>
+            <td>{{ datos['comunaUbicacion'] }}</td>
+            <td>{{ datos['precio'] }}</td>
+            <td>{{ datos['metrosCuadrados'] }}</td>
+            <td>{{ datos['habitaciones'] }}</td>
+            <td>{{ datos['banos'] }}</td>
+            <td>{{ datos['estacionamientos'] }}</td>
+            <td>{{ datos['estado'] }}</td>
+            <td><button onclick="openModal({{ loop.index0 }})">Editar</button></td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    <!-- Botón para eliminar el filtro -->
+    <div>
+        <a href="/" class="button"> Eliminar Filtro</a>
+    </div>
+    
+{% else %}
+    <!-- Mensaje de error o indicación de que no hay propiedades -->
+    <p>{{ message }}</p>
+    <div>
+        <a href="/" class="button">Eliminar Filtro</a>
+    </div>
+{% endif %}
+        
+    </ul>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Editar Propiedad</h2>
+            <form id="editForm">
+                <input type="hidden" id="editIndex" name="editIndex">
+                <label for="nombrePropiedad">Nombre Propiedad:</label>
+                <input type="text" id="nombrePropiedad" name="nombrePropiedad"><br>
+                <label for="tipo">Tipo:</label>
+                <input type="text" id="tipo" name="tipo"><br>
+                <label for="comunaUbicacion">Comuna Ubicación:</label>
+                <input type="text" id="comunaUbicacion" name="comunaUbicacion"><br>
+                <label for="precio">Precio:</label>
+                <input type="number" id="precio" name="precio"><br>
+                <label for="metrosCuadrados">Metros Cuadrados:</label>
+                <input type="number" id="metrosCuadrados" name="metrosCuadrados"><br>
+                <label for="habitaciones">Habitaciones:</label>
+                <input type="number" id="habitaciones" name="habitaciones"><br>
+                <label for="banos">Baños:</label>
+                <input type="number" id="banos" name="banos"><br>
+                <label for="estacionamientos">Estacionamientos:</label>
+                <input type="number" id="estacionamientos" name="estacionamientos"><br>
+                <label for="estado">Estado:</label>
+                <input type="text" id="estado" name="estado"><br>
+                <button type="button" onclick="updateProperty()">Editar</button>
+                <button type="button" onclick="deleteProperty()">Eliminar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Agregar Propiedad</h2>
+            <form id="addForm" method="POST">
+                <label for="addNombrePropiedad">Nombre Propiedad:</label>
+                <input type="text" id="addNombrePropiedad" name="nombrePropiedad"><br>
+                <label for="addTipo">Tipo:</label>
+                <input type="text" id="addTipo" name="tipo"><br>
+                <label for="addComunaUbicacion">Comuna Ubicación:</label>
+                <input type="text" id="addComunaUbicacion" name="comunaUbicacion"><br>
+                <label for="addPrecio">Precio:</label>
+                <input type="number" id="addPrecio" name="precio"><br>
+                <label for="addMetrosCuadrados">Metros Cuadrados:</label>
+                <input type="number" id="addMetrosCuadrados" name="metrosCuadrados"><br>
+                <label for="addHabitaciones">Habitaciones:</label>
+                <input type="number" id="addHabitaciones" name="habitaciones"><br>
+                <label for="addBanos">Baños:</label>
+                <input type="number" id="addBanos" name="banos"><br>
+                <label for="addEstacionamientos">Estacionamientos:</label>
+                <input type="number" id="addEstacionamientos" name="estacionamientos"><br>
+                <label for="addEstado">Estado:</label>
+                <input type="text" id="addEstado" name="estado"><br>
+                <button type="button" onclick="addProperty()">Agregar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        var modal = document.getElementById("myModal");
+        var addModal = document.getElementById("addModal");
+        var span = document.getElementsByClassName("close");
+        var propiedades = {{ propiedades|tojson|safe }};
+
+        document.getElementById("addButton").onclick = function() {
+            addModal.style.display = "block";
+        }
+
+        for (var i = 0; i < span.length; i++) {
+            span[i].onclick = function() {
+                modal.style.display = "none";
+                addModal.style.display = "none";
+            }
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal || event.target == addModal) {
+                modal.style.display = "none";
+                addModal.style.display = "none";
+            }
+        }
+
+        function openModal(index) {
+            modal.style.display = "block";
+            var propiedad = propiedades[index];
+            document.getElementById("editIndex").value = index;
+            document.getElementById("nombrePropiedad").value = propiedad.nombrePropiedad;
+            document.getElementById("tipo").value = propiedad.tipo;
+            document.getElementById("comunaUbicacion").value = propiedad.comunaUbicacion;
+            document.getElementById("precio").value = propiedad.precio;
+            document.getElementById("metrosCuadrados").value = propiedad.metrosCuadrados;
+            document.getElementById("habitaciones").value = propiedad.habitaciones;
+            document.getElementById("banos").value = propiedad.banos;
+            document.getElementById("estacionamientos").value = propiedad.estacionamientos;
+            document.getElementById("estado").value = propiedad.estado;
+        }
+
+        function updateProperty() {
+            var index = document.getElementById("editIndex").value;
+            var nombrePropiedad = document.getElementById("nombrePropiedad").value;
+            var tipo = document.getElementById("tipo").value;
+            var comunaUbicacion = document.getElementById("comunaUbicacion").value;
+            var precio = document.getElementById("precio").value;
+            var metrosCuadrados = document.getElementById("metrosCuadrados").value;
+            var habitaciones = document.getElementById("habitaciones").value;
+            var banos = document.getElementById("banos").value;
+            var estacionamientos = document.getElementById("estacionamientos").value;
+            var estado = document.getElementById("estado").value;
+
+            fetch('/update', {
+                method: 'POST',
+                body: JSON.stringify({
+                    index: index,
+                    nombrePropiedad: nombrePropiedad,
+                    tipo: tipo,
+                    comunaUbicacion: comunaUbicacion,
+                    precio: precio,
+                    metrosCuadrados: metrosCuadrados,
+                    habitaciones: habitaciones,
+                    banos: banos,
+                    estacionamientos: estacionamientos,
+                    estado: estado
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    modal.style.display = "none";
+                    location.reload();
+                } else {
+                    console.error('Error al actualizar la propiedad.');
+                }
+            });
+        }
+
+        function deleteProperty() {
+            var index = document.getElementById("editIndex").value;
+            fetch('/delete', {
+                method: 'POST',
+                body: JSON.stringify({index: index}),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => {
+                if(response.ok) {
+                    modal.style.display = "none";
+                    location.reload();
+                }
+            });
+        }
+
+        function addProperty() {
+    var form = document.getElementById('addForm');
+    var formData = new FormData(form);
+    var data = {};
+
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
+
+    fetch('/insert', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(response => {
+        if (response.ok) {
+            addModal.style.display = "none";
+            location.reload();
+        } else {
+            console.error('Error al agregar la propiedad.');
+        }
+    });
+}
+    </script>
+</body>
+</html>

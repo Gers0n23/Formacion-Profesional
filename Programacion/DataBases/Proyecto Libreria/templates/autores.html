@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Autores</title>
+    <!-- Importar hoja de estilos CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/style.css') }}">
+    
+</head>
+<body>
+    <p class="user">Hola, {{ username }}</p>
+    <button  class="logout-button" onclick="window.location.href='{{ url_for('logout') }}'">cerrar sesion</button>
+    <h1>Autores  <!-- Botón para volver a la página de inicio -->
+        <a href="{{ url_for('index') }}"><button>Volver al inicio</button></a>
+    </h1>
+
+
+    <!-- Formulario para agregar un nuevo autor -->
+    <div class="search-bar">
+        <form action="{{ url_for('manage_autores') }}" method="POST">
+        <input type="text" name="nombre" placeholder="Nombre">
+        <input type="text" name="id" placeholder="ID del Autor">
+        <input type="text" name="nacionalidad" placeholder="Nacionalidad">
+        <button type="submit">Agregar Autor</button>
+    </form>
+    </div>
+    
+    <!-- Lista de autores existentes -->
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Id Autor</th>
+                <th>Nacionalidad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for autor in autores %}
+                <tr>
+                    <td>
+                        <form class="form-inline" action="{{ url_for('edit_autor', id=autor._id) }}" method="POST">
+                            <input type="text" name="nombre" value="{{ autor.nombre }}">
+                    </td>
+                    <td>
+                        <input type="text" name="id" readonly value="{{ autor._id }}">
+                    </td>
+                    <td>
+                            <input type="text" name="nacionalidad" value="{{ autor.nacionalidad }}">
+                    </td>
+                    <td>
+                            <button type="submit">Editar</button>
+                        </form>
+                        <form class="form-inline" action="{{ url_for('delete_autor', id=autor._id) }}" method="POST" style="display:inline;">
+                            <button type="submit">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

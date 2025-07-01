@@ -1,0 +1,127 @@
+
+/* Estilo general de la página */
+body {
+    background-color: #f0f0f0; /* Color de fondo claro */
+    font-family: Arial, sans-serif; /* Tipografía legible */
+    margin: 0;
+    padding: 20px;
+}
+
+/* Título de la página */
+h1 {
+    text-align: center;
+    font-size: 32px;
+    color: #333; /* Color de texto oscuro */
+}
+
+/* Subtítulo de la página */
+h2 {
+    text-align: center;
+    font-size: 20px;
+    color: #333; /* Color de texto oscuro */
+}
+
+/* Contenedor de botones */
+.btn-container {
+    /* botones con 150px de ancho */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    height: 40px;
+}
+
+/* Botones */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Tabla */
+table {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    border-collapse: collapse; /* Elimina los bordes entre las celdas */
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+/* Encabezado de la tabla */
+th {
+    background-color: #333; /* Color de fondo oscuro */
+    color: white;
+    padding: 5px;
+    text-align: left;
+    font-size: small;
+}
+
+/* Cuerpo de la tabla */
+td {
+    border: 1px solid #ddd; /* Bordes grises */
+    padding: 5px;
+    font-size: small;
+}
+
+/* Celdas con fondo */
+.odd {
+    background-color: #f9f9f9; /* Color de fondo claro para filas pares */
+    width: 100%;
+}
+
+/* Celdas con bordes redondeados */
+.rounded {
+    border-radius: 5px;
+}
+
+.search-bar {
+    width: 99%;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centra los elementos verticalmente */
+    margin-bottom: 40px;
+    height: 50px; /* Aumenta la altura del contenedor */
+    width: 100%;
+}
+
+.logout-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #f44336; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.logout-button:hover {
+    background-color: #cc0000; /* Color de fondo al pasar el mouse */
+}
+
+.user{
+    position: absolute;
+    top: 10px;
+    right: 160px;
+    color: rgb(3, 3, 3); /* Color del texto */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}

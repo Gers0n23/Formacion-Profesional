@@ -1,0 +1,61 @@
+Crear Tablas:
+
+create table empresas(
+id int NOT NULL,
+rut bigint NOT NULL,
+dv char(1) NOT NULL,
+razon_social varchar(200) NOT NULL);
+
+create table ofertas(
+id int not null,
+profesion_id int,
+descripcion longtext not null,
+cupos int not null,
+sueldo_minimo bigint not null,
+sueldo_maximo bigint not null,
+fecha_inicio date not null,
+fecha_termino date not null,
+empresa_id int not null,
+contacto varchar(200) not null,
+estado_id int not null);
+
+create table postulante_oferta(
+postulante_id int not null,
+oferta_id int not null,
+fecha_postulacion timestamp not null);
+
+create table postulantes(
+id int not null,
+rut bigint not null,
+dv char(1) not null,
+nombres varchar(200) not null,
+apellidos varchar(200) not null,
+fecha_nacimiento date not null,
+profesion_id int,
+telefono_id int not null,
+correo varchar(200),
+estado_civil_id int not null,
+empleado bit not null);
+
+Primary Keys:
+
+alter table empresas add primary key(id);
+alter table ofertas add primary key(id);
+alter table postulante_oferta add primary key(postulante_id,oferta_id);
+alter table postulantes add primary key(id);
+
+Foreign Keys:
+
+alter table ofertas add key fk_empresas(empresa_id);
+alter table postulante_oferta add key fk_ofertas(oferta_id),add key fk_postulantes(postulante_id);
+
+Constraint (References):
+
+alter table ofertas
+add constraint fk_empresas foreign key(empresa_id) references empresas(id);
+
+alter table postulante_oferta
+add constraint fk_ofertas foreign key(oferta_id) references ofertas(id);
+
+alter table postulante_oferta
+add constraint fk_postulantes foreign key(postulante_id) references postulantes(id);
