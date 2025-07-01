@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3ujiy704w2aq"]
+
+[ext_resource type="Script" path="res://Escenas/LugarInteraccion.gd" id="1_va15n"]
+[ext_resource type="PackedScene" uid="uid://cblvk871kfjxx" path="res://Escenas/Porteria.tscn" id="2_1qtn4"]
+[ext_resource type="Texture2D" uid="uid://da275kxjwsygs" path="res://imagenes/flesha.png" id="2_sqjyt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_01tih"]
+radius = 182.332
+
+[sub_resource type="Animation" id="Animation_qmpew"]
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_55tdp"]
+resource_name = "entra"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 2, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dfu3b"]
+_data = {
+"RESET": SubResource("Animation_qmpew"),
+"entra": SubResource("Animation_55tdp")
+}
+
+[node name="LugarInteraccion" type="Area2D"]
+script = ExtResource("1_va15n")
+porteria_scene = ExtResource("2_1qtn4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 68)
+shape = SubResource("CircleShape2D_01tih")
+
+[node name="ArrowSprite" type="Sprite2D" parent="."]
+position = Vector2(-4, 3.99999)
+scale = Vector2(0.63767, 0.636213)
+texture = ExtResource("2_sqjyt")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ArrowSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_dfu3b")
+}
+autoplay = "RESET"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

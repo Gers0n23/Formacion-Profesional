@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6c36vokugi5t"]
+
+[ext_resource type="Script" path="res://Piso2seg.gd" id="1_ce7ks"]
+[ext_resource type="Texture2D" uid="uid://5hbudohmxesm" path="res://imagenes/inacap.png" id="3_egcvd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gy5fh"]
+size = Vector2(953.813, 20.5024)
+
+[node name="Piso2seg" type="Node2D"]
+position = Vector2(-551, -492)
+script = ExtResource("1_ce7ks")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(555, 943)
+shape = SubResource("RectangleShape2D_gy5fh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(813.25, 473.813)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_gy5fh")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(239, 469.094)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_gy5fh")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(532, 3)
+shape = SubResource("RectangleShape2D_gy5fh")
+
+[node name="Inacap" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(651, 177)
+scale = Vector2(2.87774, 2.64676)
+texture = ExtResource("3_egcvd")

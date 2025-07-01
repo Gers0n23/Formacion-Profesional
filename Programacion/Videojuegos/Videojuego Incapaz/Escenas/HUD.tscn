@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfdb1vuqxfu8m"]
+
+[ext_resource type="Texture2D" uid="uid://bj0wjwd7kwuwe" path="res://imagenes/Vida.png" id="1_e04cp"]
+[ext_resource type="AudioStream" uid="uid://bik8jyl1xsmcc" path="res://musica/canciones/Ingame.mp3" id="2_o15s5"]
+
+[sub_resource type="GDScript" id="GDScript_ugfua"]
+script/source = "extends CanvasLayer
+
+@onready var health_bar = $ProgressBar
+@onready var player = null
+@onready var game_over_scene = preload(\"res://escenas/game_over.tscn\")  # Cargar la escena de Game Over
+var game_over_triggered = false  # Evita que se active varias veces
+
+func _ready():
+	player = get_tree().get_nodes_in_group(\"player\")[0] if get_tree().has_group(\"player\") else null
+	if player:
+		health_bar.max_value = player.max_health  # Cambiado para reflejar la salud máxima del jugador
+		health_bar.value = player.health
+	else:
+		print(\"Error: No se encontró el nodo del jugador.\")
+
+func _process(_delta):
+	if player:
+		health_bar.value = player.health
+
+		# Detectar si el jugador ha muerto y evitar múltiples transiciones
+		if player.health <= 0 and not game_over_triggered:
+			game_over_triggered = true
+			show_game_over_scene()
+
+# Función para cambiar la escena a \"Game Over\"
+func show_game_over_scene():
+	print(\"Jugador muerto. Cambiando a la escena de Game Over.\")
+	var game_over_instance = game_over_scene.instantiate()
+	get_tree().current_scene.queue_free()  # Elimina la escena actual
+	get_tree().root.add_child(game_over_instance)  # Añade la escena de Game Over al árbol
+	
+	# Obtén el AnimationPlayer y comienza la animación \"fade_in\"
+	var animation_player = game_over_instance.get_node(\"AnimationPlayer\")
+	animation_player.play(\"fade_in\")  # Reproduce la animación de aparición
+
+"
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = SubResource("GDScript_ugfua")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(0.960784, 0, 0, 1)
+offset_left = 51.0
+offset_top = 24.0
+offset_right = 291.0
+offset_bottom = 50.0
+scale = Vector2(0.5, 0.5)
+step = 1.0
+value = 100.0
+show_percentage = false
+
+[node name="Vida" type="Sprite2D" parent="."]
+position = Vector2(95.5, 29.75)
+scale = Vector2(0.779412, 0.648936)
+texture = ExtResource("1_e04cp")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_o15s5")
+autoplay = true

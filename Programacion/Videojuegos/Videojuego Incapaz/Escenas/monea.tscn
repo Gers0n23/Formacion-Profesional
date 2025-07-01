@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://de78gqf3ct7ai"]
+
+[ext_resource type="Texture2D" uid="uid://cbixe7xifilco" path="res://imagenes/moneas.png" id="1_8c18y"]
+[ext_resource type="Script" path="res://Escenas/monea2D.gd" id="1_inoec"]
+[ext_resource type="AudioStream" uid="uid://ystgo2qqlciy" path="res://musica/efectos de sonido/Moneda Sonic Efecto de Sonido.mp3" id="3_mr2qu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uw1bw"]
+
+[sub_resource type="Animation" id="Animation_hgdb3"]
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_mqmw0"]
+resource_name = "monea"
+length = 1.34
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3jm7r"]
+_data = {
+"RESET": SubResource("Animation_hgdb3"),
+"monea": SubResource("Animation_mqmw0")
+}
+
+[node name="monea" type="Node2D"]
+
+[node name="monea2D" type="Area2D" parent="."]
+script = ExtResource("1_inoec")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="monea2D"]
+scale = Vector2(8.235, 8.235)
+shape = SubResource("CircleShape2D_uw1bw")
+
+[node name="Sprite2D" type="Sprite2D" parent="monea2D"]
+position = Vector2(2, 3)
+scale = Vector2(0.330064, 0.320265)
+texture = ExtResource("1_8c18y")
+hframes = 4
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="monea2D"]
+libraries = {
+"": SubResource("AnimationLibrary_3jm7r")
+}
+autoplay = "monea"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_mr2qu")
+
+[connection signal="body_entered" from="monea2D" to="monea2D" method="_on_body_entered"]

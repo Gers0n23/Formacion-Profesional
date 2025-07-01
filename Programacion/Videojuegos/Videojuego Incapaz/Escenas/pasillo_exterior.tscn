@@ -1,0 +1,305 @@
+[gd_scene load_steps=27 format=3 uid="uid://dsjs32e0ac0q2"]
+
+[ext_resource type="Texture2D" uid="uid://cqf8ei5nb227e" path="res://ambient/Mountain/1.Sky_free.png" id="1_3ndf5"]
+[ext_resource type="Texture2D" uid="uid://dbp2d78vd1ptj" path="res://aset edit/Entrada2.png" id="2_5nj3b"]
+[ext_resource type="Texture2D" uid="uid://cr0afdp8avdrr" path="res://aset edit/techoEdif.Principal.png" id="3_vk15u"]
+[ext_resource type="Texture2D" uid="uid://dfb2hksfwiabi" path="res://aset edit/7.Sidewalk.png" id="4_x1mqy"]
+[ext_resource type="Texture2D" uid="uid://bngfp4rarpsfl" path="res://aset edit/3.Pasteto.png" id="5_d8ya6"]
+[ext_resource type="Texture2D" uid="uid://c4c421q0gw2f3" path="res://Pixel Art Flower Pack/Pixel Art Flower Pack/Bush 1/Bush 1 - GREEN 2.png" id="6_7wcb4"]
+[ext_resource type="Texture2D" uid="uid://bs02aelwm0t1n" path="res://Pixel Art Flower Pack/Pixel Art Flower Pack/Bush 1/Bush 1 - GREEN.png" id="7_ly8qr"]
+[ext_resource type="Texture2D" uid="uid://d2tor3ajbcthu" path="res://Pixel Art Flower Pack/Pixel Art Flower Pack/Bush 2/Bush 2 - ORANGE.png" id="8_acpv6"]
+[ext_resource type="Texture2D" uid="uid://d17pius4emmx8" path="res://aset edit/reja.png" id="9_7cpna"]
+[ext_resource type="Texture2D" uid="uid://df3f1u42wi01q" path="res://imagenes/Porteria2.png" id="10_rv6fi"]
+[ext_resource type="PackedScene" uid="uid://bctglwyc1nyd2" path="res://Escenas/player/Payer.tscn" id="11_de0so"]
+[ext_resource type="Texture2D" uid="uid://bb0uj0i5eq4m0" path="res://imagenes/ArcoInflable_1.png" id="12_rlhd6"]
+[ext_resource type="Texture2D" uid="uid://ceg2v5qrajcef" path="res://imagenes/Cono.png" id="13_a5la4"]
+[ext_resource type="Texture2D" uid="uid://qgs5e417c4kb" path="res://aset edit/arbols.png" id="14_8n6hk"]
+[ext_resource type="Texture2D" uid="uid://c5bb2mc86ro3j" path="res://Pixel Art Flower Pack/Pixel Art Flower Pack/Bush 1 (No Flowers)/Bush 1 (no flowers) - GREEN.png" id="15_qwbd7"]
+[ext_resource type="Texture2D" uid="uid://dwngpsdplbc4v" path="res://Pixel Art Flower Pack/Pixel Art Flower Pack/Bush 1 (No Flowers)/Bush 1 (no flowers) - RED.png" id="16_ik30j"]
+[ext_resource type="Texture2D" uid="uid://ciupf0kfyfgxb" path="res://imagenes/ArcoInflable_2.png" id="17_qrj0p"]
+[ext_resource type="Texture2D" uid="uid://cssis0y67spo1" path="res://imagenes/ArcoInflable_4.png" id="18_1ewdr"]
+[ext_resource type="Texture2D" uid="uid://up6hvqttt5ic" path="res://imagenes/ArcoInflable_3.png" id="19_aroxk"]
+[ext_resource type="PackedScene" uid="uid://de78gqf3ct7ai" path="res://Escenas/monea.tscn" id="20_t4shn"]
+[ext_resource type="Texture2D" uid="uid://lv6tuwfuvegf" path="res://aset edit/5.Sidewalk.png" id="21_ntdx7"]
+[ext_resource type="Texture2D" uid="uid://bby5bp2j68tgp" path="res://aset edit/6.Sidewalk.png" id="22_v87pj"]
+[ext_resource type="Texture2D" uid="uid://bc6n0t5456i5d" path="res://aset edit/wea amarilla.png" id="23_fnfdk"]
+[ext_resource type="Texture2D" uid="uid://2r4421laaxgc" path="res://aset edit/arbol2.png" id="24_1maxe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuiws"]
+size = Vector2(2731.28, 77.0002)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxaci"]
+size = Vector2(28.9618, 1.42732)
+
+[node name="Pasillo_exterior" type="Node2D"]
+
+[node name="1_skyFree" type="Sprite2D" parent="."]
+position = Vector2(2386, -935.75)
+scale = Vector2(92.075, 14.4028)
+texture = ExtResource("1_3ndf5")
+
+[node name="Edificio" type="Node2D" parent="."]
+
+[node name="Entrada2" type="Sprite2D" parent="Edificio"]
+position = Vector2(436, 78.5005)
+scale = Vector2(2.00836, 3.02926)
+texture = ExtResource("2_5nj3b")
+
+[node name="Entrada3" type="Sprite2D" parent="Edificio"]
+position = Vector2(-938, 103)
+scale = Vector2(1.83566, 1.42886)
+texture = ExtResource("2_5nj3b")
+
+[node name="TechoEdif_principal" type="Sprite2D" parent="Edificio"]
+position = Vector2(432, -531)
+scale = Vector2(1.03178, 2.44186)
+texture = ExtResource("3_vk15u")
+
+[node name="Suelo" type="Node2D" parent="."]
+
+[node name="7_sidewalk" type="Sprite2D" parent="Suelo"]
+position = Vector2(-246.375, 1203)
+scale = Vector2(2.04683, 4.76068)
+texture = ExtResource("4_x1mqy")
+
+[node name="7_sidewalk2" type="Sprite2D" parent="Suelo"]
+position = Vector2(395.001, 1202.14)
+rotation = 3.14159
+scale = Vector2(2.04683, 4.75337)
+texture = ExtResource("4_x1mqy")
+
+[node name="7_sidewalk7" type="Sprite2D" parent="Suelo"]
+position = Vector2(-490, 516)
+rotation = 3.14159
+scale = Vector2(1.31253, 1.23731)
+texture = ExtResource("4_x1mqy")
+
+[node name="7_sidewalk5" type="Sprite2D" parent="Suelo"]
+position = Vector2(1679, 1207.65)
+rotation = 3.14159
+scale = Vector2(2.04683, 4.80046)
+texture = ExtResource("4_x1mqy")
+
+[node name="7_sidewalk4" type="Sprite2D" parent="Suelo"]
+position = Vector2(-1323.95, 1193.02)
+rotation = 3.14159
+scale = Vector2(4.8338, 4.67536)
+texture = ExtResource("4_x1mqy")
+
+[node name="7_sidewalk3" type="Sprite2D" parent="Suelo"]
+position = Vector2(1037, 1217.37)
+rotation = 6.28319
+scale = Vector2(2.04683, 4.88349)
+texture = ExtResource("4_x1mqy")
+
+[node name="7_sidewalk6" type="Sprite2D" parent="Suelo"]
+position = Vector2(2320, 1124.8)
+rotation = 6.28319
+scale = Vector2(2.04683, 5.39772)
+texture = ExtResource("4_x1mqy")
+
+[node name="3_pasteto4" type="Sprite2D" parent="Suelo"]
+position = Vector2(2246, 384)
+rotation = -1.5708
+scale = Vector2(0.750135, 5.70448)
+texture = ExtResource("5_d8ya6")
+
+[node name="7_sidewalk8" type="Sprite2D" parent="Suelo"]
+position = Vector2(2965, 986.39)
+rotation = 6.28319
+scale = Vector2(2.04683, 6.17339)
+texture = ExtResource("4_x1mqy")
+
+[node name="3_pasteto" type="Sprite2D" parent="Suelo"]
+position = Vector2(962, 457.001)
+rotation = -1.5708
+scale = Vector2(1.18716, 11.814)
+texture = ExtResource("5_d8ya6")
+
+[node name="3_pasteto3" type="Sprite2D" parent="Suelo"]
+position = Vector2(2430, 386)
+rotation = 1.5708
+scale = Vector2(0.750135, 5.70448)
+texture = ExtResource("5_d8ya6")
+
+[node name="3_pasteto2" type="Sprite2D" parent="Suelo"]
+position = Vector2(-419, 507)
+rotation = 1.5708
+scale = Vector2(0.852473, 15.6767)
+texture = ExtResource("5_d8ya6")
+
+[node name="Bush1-Green5" type="Sprite2D" parent="Suelo"]
+position = Vector2(1955, 408.103)
+scale = Vector2(3.87923, 3.86249)
+texture = ExtResource("6_7wcb4")
+
+[node name="Bush1-Green3" type="Sprite2D" parent="Suelo"]
+position = Vector2(1952, 469.256)
+rotation = -0.000835665
+scale = Vector2(4.1802, 2.93379)
+skew = -0.00122428
+texture = ExtResource("7_ly8qr")
+
+[node name="Bush1-Green4" type="Sprite2D" parent="Suelo"]
+position = Vector2(1951, 529.772)
+scale = Vector2(3.87923, 3.86249)
+texture = ExtResource("6_7wcb4")
+
+[node name="Bush2-Orange" type="Sprite2D" parent="Suelo"]
+position = Vector2(1942.98, 597.183)
+scale = Vector2(2.68622, 4.06474)
+texture = ExtResource("8_acpv6")
+
+[node name="Reja" type="Sprite2D" parent="Suelo"]
+position = Vector2(2348, 235.001)
+rotation = 1.54636
+scale = Vector2(0.652, 0.85)
+skew = -1.48179
+texture = ExtResource("9_7cpna")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(5177, 431)
+scale = Vector2(11.4928, 4.68611)
+
+[node name="ArcoInflable2" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-356.484, -53.5626)
+scale = Vector2(0.087011, 0.213397)
+texture = ExtResource("12_rlhd6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-342.649, 100.51)
+scale = Vector2(0.175439, 0.213396)
+shape = SubResource("RectangleShape2D_tuiws")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-255.116, -40.591)
+rotation = 1.5708
+scale = Vector2(9.605, 9.605)
+shape = SubResource("RectangleShape2D_vxaci")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-491.003, -2.98755)
+rotation = 1.5708
+scale = Vector2(9.605, 9.605)
+shape = SubResource("RectangleShape2D_vxaci")
+
+[node name="Porteria2" type="Sprite2D" parent="."]
+position = Vector2(2188, 490)
+scale = Vector2(2.40745, 2.48114)
+texture = ExtResource("10_rv6fi")
+
+[node name="player" parent="." instance=ExtResource("11_de0so")]
+position = Vector2(2031, 658)
+
+[node name="Cono" type="Sprite2D" parent="."]
+position = Vector2(-431, 622)
+scale = Vector2(3.575, 2.8871)
+texture = ExtResource("13_a5la4")
+
+[node name="Cono2" type="Sprite2D" parent="."]
+position = Vector2(-387, 781)
+scale = Vector2(3.575, 2.8871)
+texture = ExtResource("13_a5la4")
+
+[node name="Arbols" type="Sprite2D" parent="."]
+position = Vector2(2221, -1176)
+scale = Vector2(0.532635, 0.874812)
+texture = ExtResource("14_8n6hk")
+
+[node name="Bush1(noFlowers)-Green" type="Sprite2D" parent="."]
+position = Vector2(2136, 975)
+scale = Vector2(4.96667, 5.43333)
+texture = ExtResource("15_qwbd7")
+
+[node name="Bush1(noFlowers)-Red" type="Sprite2D" parent="."]
+position = Vector2(2276, 984)
+scale = Vector2(5.36667, 5.03333)
+texture = ExtResource("16_ik30j")
+
+[node name="Bush2-Orange" type="Sprite2D" parent="."]
+position = Vector2(2375, 971)
+scale = Vector2(4.51471, 6.61111)
+texture = ExtResource("8_acpv6")
+
+[node name="ArcoInflable2" type="Sprite2D" parent="."]
+position = Vector2(1043.31, -77.5171)
+rotation = 0.736529
+scale = Vector2(1, 0.582934)
+skew = -0.176278
+texture = ExtResource("17_qrj0p")
+
+[node name="ArcoInflable4" type="Sprite2D" parent="."]
+position = Vector2(912.142, -125.825)
+scale = Vector2(1, 0.59836)
+skew = 0.558505
+texture = ExtResource("18_1ewdr")
+
+[node name="ArcoInflable3" type="Sprite2D" parent="."]
+position = Vector2(878, -58)
+rotation = 0.237365
+scale = Vector2(1, 0.501368)
+skew = 0.300197
+texture = ExtResource("19_aroxk")
+
+[node name="ArcoInflable1" type="Sprite2D" parent="."]
+position = Vector2(830, 563)
+texture = ExtResource("12_rlhd6")
+
+[node name="monea" parent="." instance=ExtResource("20_t4shn")]
+position = Vector2(1083, 241)
+
+[node name="monea2" parent="." instance=ExtResource("20_t4shn")]
+position = Vector2(-155, 247)
+
+[node name="5_sidewalk" type="Sprite2D" parent="."]
+position = Vector2(3821, 419.079)
+rotation = -1.57079
+scale = Vector2(1, 4.67681)
+texture = ExtResource("21_ntdx7")
+
+[node name="6_sidewalk" type="Sprite2D" parent="."]
+position = Vector2(3822, 1129.97)
+rotation = -1.57079
+scale = Vector2(3.51884, 4.59262)
+texture = ExtResource("22_v87pj")
+
+[node name="WeaAmarilla" type="Sprite2D" parent="."]
+position = Vector2(3825, 614)
+scale = Vector2(0.428571, 0.648368)
+texture = ExtResource("23_fnfdk")
+
+[node name="WeaAmarilla2" type="Sprite2D" parent="."]
+position = Vector2(3856, 827)
+scale = Vector2(0.428571, 0.648368)
+texture = ExtResource("23_fnfdk")
+
+[node name="WeaAmarilla3" type="Sprite2D" parent="."]
+position = Vector2(3812, 1009)
+scale = Vector2(0.428571, 0.648368)
+texture = ExtResource("23_fnfdk")
+
+[node name="WeaAmarilla4" type="Sprite2D" parent="."]
+position = Vector2(3847, 1187)
+scale = Vector2(0.428571, 0.648368)
+texture = ExtResource("23_fnfdk")
+
+[node name="WeaAmarilla5" type="Sprite2D" parent="."]
+position = Vector2(3818, 1369)
+scale = Vector2(0.428571, 0.648368)
+texture = ExtResource("23_fnfdk")
+
+[node name="WeaAmarilla6" type="Sprite2D" parent="."]
+position = Vector2(3834, 1567)
+scale = Vector2(0.428571, 0.648368)
+texture = ExtResource("23_fnfdk")
+
+[node name="Entrada4" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.427451)
+position = Vector2(434, 776)
+scale = Vector2(2.00836, 3.02926)
+texture = ExtResource("2_5nj3b")
+
+[node name="Arbol2" type="Sprite2D" parent="."]
+position = Vector2(3617, 57)
+scale = Vector2(5.76596, 7.52609)
+texture = ExtResource("24_1maxe")

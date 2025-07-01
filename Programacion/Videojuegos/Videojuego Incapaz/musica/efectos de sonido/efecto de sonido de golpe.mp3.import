@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cjgdkve5m37sp"
+path="res://.godot/imported/efecto de sonido de golpe.mp3-aa12aa3ced625f3d5bdf378c5a7c4b55.mp3str"
+
+[deps]
+
+source_file="res://musica/efectos de sonido/efecto de sonido de golpe.mp3"
+dest_files=["res://.godot/imported/efecto de sonido de golpe.mp3-aa12aa3ced625f3d5bdf378c5a7c4b55.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

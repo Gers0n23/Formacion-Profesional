@@ -1,0 +1,209 @@
+[gd_scene load_steps=20 format=3 uid="uid://cblvk871kfjxx"]
+
+[ext_resource type="Script" path="res://Escenas/Porteria.gd" id="1_slhg3"]
+[ext_resource type="Texture2D" uid="uid://cqf8ei5nb227e" path="res://ambient/Mountain/1.Sky_free.png" id="2_06qe8"]
+[ext_resource type="Texture2D" uid="uid://bm1bku6km6fxb" path="res://ambient/Mountain/3.Trees_back.png" id="3_nwtj4"]
+[ext_resource type="Texture2D" uid="uid://4tywnogltikt" path="res://aset edit/2.Buildings inacap.png" id="4_ccwnb"]
+[ext_resource type="Texture2D" uid="uid://dfb2hksfwiabi" path="res://aset edit/7.Sidewalk.png" id="5_ftvq3"]
+[ext_resource type="Texture2D" uid="uid://bngfp4rarpsfl" path="res://aset edit/3.Pasteto.png" id="6_2ehsg"]
+[ext_resource type="Texture2D" uid="uid://dk36ewnrrl7wv" path="res://aset edit/4.Sidewalk.png" id="7_x728v"]
+[ext_resource type="Texture2D" uid="uid://c58ehswao1q2x" path="res://aset edit/entrada2editeds.png" id="8_wd5mv"]
+[ext_resource type="Texture2D" uid="uid://d2g2u2xlafr78" path="res://aset edit/entrada2edited.png" id="9_mtogk"]
+[ext_resource type="Texture2D" uid="uid://cr0afdp8avdrr" path="res://aset edit/techoEdif.Principal.png" id="10_wc5ni"]
+[ext_resource type="Texture2D" uid="uid://dsokg6jf7gqlx" path="res://aset edit/techo.png" id="11_54w5f"]
+[ext_resource type="Texture2D" uid="uid://cqkmv6gyos2kg" path="res://imagenes/ArcoInflable.png" id="12_qqaxd"]
+[ext_resource type="Texture2D" uid="uid://bd2ls5a0fh7uf" path="res://imagenes/Porteria.png" id="13_2fjsc"]
+[ext_resource type="PackedScene" uid="uid://do4n6tnxpa368" path="res://Escenas/Pruebapresicion.tscn" id="14_dj653"]
+[ext_resource type="Texture2D" uid="uid://dbuq5b5ss1mp0" path="res://Escenas/tornikete/TorniketeOff.png" id="15_cjwva"]
+[ext_resource type="Texture2D" uid="uid://ceg2v5qrajcef" path="res://imagenes/Cono.png" id="18_lvriw"]
+[ext_resource type="Texture2D" uid="uid://4gq2br0xpwpt" path="res://imagenes/Cumpleaños.png" id="19_72b2m"]
+[ext_resource type="Texture2D" uid="uid://mdfhw4nn2i82" path="res://imagenes/Globo.png" id="20_dtys3"]
+[ext_resource type="Texture2D" uid="uid://b1lve3ocua4gn" path="res://imagenes/GloboBlancos.png" id="21_bq3xq"]
+
+[node name="Porteria" type="Node2D"]
+script = ExtResource("1_slhg3")
+
+[node name="Fondo" type="Node2D" parent="."]
+
+[node name="1_skyFree" type="Sprite2D" parent="Fondo"]
+position = Vector2(602.5, 74.5)
+scale = Vector2(8.38437, 5.35)
+texture = ExtResource("2_06qe8")
+
+[node name="3_treesBack" type="Sprite2D" parent="Fondo"]
+position = Vector2(-9, -24)
+scale = Vector2(4.8375, 3.32222)
+texture = ExtResource("3_nwtj4")
+
+[node name="3_treesBack2" type="Sprite2D" parent="Fondo"]
+position = Vector2(1499, -24)
+scale = Vector2(4.8375, 3.32222)
+texture = ExtResource("3_nwtj4")
+
+[node name="Edificio" type="Node2D" parent="."]
+
+[node name="2_buildingsInacap" type="Sprite2D" parent="Edificio"]
+position = Vector2(1329, 335)
+scale = Vector2(3.59531, 3.03333)
+texture = ExtResource("4_ccwnb")
+
+[node name="2_buildingsInacap2" type="Sprite2D" parent="Edificio"]
+position = Vector2(-513, 335)
+scale = Vector2(3.59531, 3.03333)
+texture = ExtResource("4_ccwnb")
+
+[node name="Suelo" type="Node2D" parent="."]
+
+[node name="7_sidewalk" type="Sprite2D" parent="Suelo"]
+position = Vector2(-197.125, 649)
+scale = Vector2(3.08492, 1)
+texture = ExtResource("5_ftvq3")
+
+[node name="7_sidewalk5" type="Sprite2D" parent="Suelo"]
+position = Vector2(-135.591, 869)
+rotation = -3.14159
+scale = Vector2(2.69423, 1)
+texture = ExtResource("5_ftvq3")
+
+[node name="7_sidewalk6" type="Sprite2D" parent="Suelo"]
+position = Vector2(553, 873)
+rotation = -3.14159
+scale = Vector2(1.81429, 1)
+texture = ExtResource("5_ftvq3")
+
+[node name="7_sidewalk7" type="Sprite2D" parent="Suelo"]
+position = Vector2(1057, 875)
+rotation = -3.14159
+scale = Vector2(1.81429, 1)
+texture = ExtResource("5_ftvq3")
+
+[node name="7_sidewalk3" type="Sprite2D" parent="Suelo"]
+position = Vector2(1117, 649)
+scale = Vector2(1.81429, 1)
+texture = ExtResource("5_ftvq3")
+
+[node name="7_sidewalk2" type="Sprite2D" parent="Suelo"]
+position = Vector2(560, 649)
+scale = Vector2(1.81429, 1)
+texture = ExtResource("5_ftvq3")
+
+[node name="7_sidewalk4" type="Sprite2D" parent="Suelo"]
+position = Vector2(408, 444)
+scale = Vector2(2.19683, 1.46154)
+texture = ExtResource("5_ftvq3")
+
+[node name="3_pasteto" type="Sprite2D" parent="Suelo"]
+position = Vector2(1331, 382)
+scale = Vector2(3.61562, 2.75)
+texture = ExtResource("6_2ehsg")
+
+[node name="3_pasteto3" type="Sprite2D" parent="Suelo"]
+position = Vector2(1998, 958)
+rotation = 3.14159
+scale = Vector2(3.81915, 3.75149)
+texture = ExtResource("6_2ehsg")
+
+[node name="3_pasteto2" type="Sprite2D" parent="Suelo"]
+position = Vector2(-361, 372)
+scale = Vector2(2.59063, 2.86667)
+texture = ExtResource("6_2ehsg")
+
+[node name="4_sidewalk" type="Sprite2D" parent="."]
+position = Vector2(1513, 997)
+scale = Vector2(2.70714, 2.25694)
+texture = ExtResource("7_x728v")
+
+[node name="Entrada2Editeds" type="Sprite2D" parent="."]
+position = Vector2(740, 254.125)
+scale = Vector2(0.0825243, 0.680841)
+texture = ExtResource("8_wd5mv")
+
+[node name="Entrada2Edited" type="Sprite2D" parent="."]
+position = Vector2(103, 254.75)
+scale = Vector2(0.168061, 0.674338)
+texture = ExtResource("9_mtogk")
+
+[node name="TechoEdif_principal" type="Sprite2D" parent="."]
+position = Vector2(409, 109)
+scale = Vector2(0.486671, 0.837209)
+texture = ExtResource("10_wc5ni")
+
+[node name="Techo" type="Sprite2D" parent="."]
+position = Vector2(42, 534)
+scale = Vector2(0.0507813, 0.376113)
+texture = ExtResource("11_54w5f")
+
+[node name="ArcoInflable" type="Sprite2D" parent="."]
+position = Vector2(418, 312)
+scale = Vector2(0.233549, 0.215899)
+texture = ExtResource("12_qqaxd")
+
+[node name="PuestoGuardia" type="Node2D" parent="."]
+
+[node name="Porteria" type="Sprite2D" parent="PuestoGuardia"]
+position = Vector2(333, 452)
+scale = Vector2(1.71707, 1.59661)
+texture = ExtResource("13_2fjsc")
+
+[node name="TorniketeOff" type="Sprite2D" parent="PuestoGuardia"]
+position = Vector2(361, 731)
+scale = Vector2(0.517143, 0.555409)
+texture = ExtResource("15_cjwva")
+
+[node name="TorniketeOff2" type="Sprite2D" parent="PuestoGuardia"]
+position = Vector2(69, 731)
+scale = Vector2(0.517143, 0.555409)
+texture = ExtResource("15_cjwva")
+
+[node name="Pruebapresicion" parent="." instance=ExtResource("14_dj653")]
+position = Vector2(369, 506)
+
+[node name="Cono" type="Sprite2D" parent="."]
+position = Vector2(302, 788)
+scale = Vector2(2.4, 1.85484)
+texture = ExtResource("18_lvriw")
+
+[node name="Cono2" type="Sprite2D" parent="."]
+position = Vector2(444, 786)
+scale = Vector2(2.5, 1.77419)
+texture = ExtResource("18_lvriw")
+
+[node name="Cono3" type="Sprite2D" parent="."]
+position = Vector2(145, 781)
+scale = Vector2(2.5, 1.98387)
+texture = ExtResource("18_lvriw")
+
+[node name="Cono4" type="Sprite2D" parent="."]
+position = Vector2(-12, 786)
+scale = Vector2(2.15, 1.93548)
+texture = ExtResource("18_lvriw")
+
+[node name="Cono5" type="Sprite2D" parent="."]
+position = Vector2(560, 778)
+scale = Vector2(2.3, 2.08065)
+texture = ExtResource("18_lvriw")
+
+[node name="Cono6" type="Sprite2D" parent="."]
+position = Vector2(364, 603)
+scale = Vector2(1.725, 1.48387)
+texture = ExtResource("18_lvriw")
+
+[node name="Cumpleaños" type="Sprite2D" parent="."]
+position = Vector2(372.664, 775.218)
+scale = Vector2(0.780221, 0.764075)
+texture = ExtResource("19_72b2m")
+
+[node name="Globo" type="Sprite2D" parent="."]
+position = Vector2(456.75, 689)
+scale = Vector2(1.55128, 1.48387)
+texture = ExtResource("20_dtys3")
+
+[node name="GloboBlancos" type="Sprite2D" parent="."]
+position = Vector2(305, 691)
+scale = Vector2(1.6, 1.54839)
+texture = ExtResource("21_bq3xq")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="game_lost" from="Pruebapresicion" to="." method="_on_pruebapresicion_game_lost"]
+[connection signal="game_won" from="Pruebapresicion" to="." method="_on_pruebapresicion_game_won"]

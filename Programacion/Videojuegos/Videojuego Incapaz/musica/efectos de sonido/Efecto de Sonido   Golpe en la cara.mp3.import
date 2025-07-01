@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dy5f4p26crfe5"
+path="res://.godot/imported/Efecto de Sonido   Golpe en la cara.mp3-d46bfe114b1a96cff4e01a95536fc226.mp3str"
+
+[deps]
+
+source_file="res://musica/efectos de sonido/Efecto de Sonido   Golpe en la cara.mp3"
+dest_files=["res://.godot/imported/Efecto de Sonido   Golpe en la cara.mp3-d46bfe114b1a96cff4e01a95536fc226.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

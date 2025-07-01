@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bk45cokdjicw3"
+path="res://.godot/imported/Nice meme.mp3-56630e373c4cd9fb5946c064e7587419.mp3str"
+
+[deps]
+
+source_file="res://musica/efectos de sonido/Nice meme.mp3"
+dest_files=["res://.godot/imported/Nice meme.mp3-56630e373c4cd9fb5946c064e7587419.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

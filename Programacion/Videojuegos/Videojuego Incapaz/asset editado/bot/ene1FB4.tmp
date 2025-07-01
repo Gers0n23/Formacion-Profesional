@@ -1,0 +1,96 @@
+[gd_scene load_steps=13 format=3 uid="uid://dmn2esgo0hcqp"]
+
+[ext_resource type="Script" path="res://bago porteño.gd" id="1_con5b"]
+[ext_resource type="Texture2D" uid="uid://bl70nm4a1cvh8" path="res://asset editado/bot/botWalk 48x48.png" id="2_y7hne"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8d5u"]
+atlas = ExtResource("2_y7hne")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8leb"]
+atlas = ExtResource("2_y7hne")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwtxs"]
+atlas = ExtResource("2_y7hne")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmqx1"]
+atlas = ExtResource("2_y7hne")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_016xm"]
+atlas = ExtResource("2_y7hne")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2etg"]
+atlas = ExtResource("2_y7hne")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uviyx"]
+atlas = ExtResource("2_y7hne")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3hjx"]
+atlas = ExtResource("2_y7hne")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3a3ko"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8d5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8leb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwtxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmqx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_016xm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2etg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uviyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3hjx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ord3a"]
+radius = 88.0
+height = 386.0
+
+[node name="enemy" type="Node2D"]
+
+[node name="bago porteño" type="CharacterBody2D" parent="." groups=["Enemy"]]
+script = ExtResource("1_con5b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="bago porteño"]
+position = Vector2(2, 1)
+scale = Vector2(15.3958, 14.8125)
+sprite_frames = SubResource("SpriteFrames_3a3ko")
+autoplay = "default"
+frame_progress = 0.670901
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bago porteño"]
+position = Vector2(17, 27)
+shape = SubResource("CapsuleShape2D_ord3a")
+
+[node name="rayo" type="Node2D" parent="bago porteño"]
+
+[node name="RayCast2D" type="RayCast2D" parent="bago porteño/rayo"]
+target_position = Vector2(408, 0)
+
+[node name="RayCast2D2" type="RayCast2D" parent="bago porteño/rayo"]
+target_position = Vector2(-508, 1)

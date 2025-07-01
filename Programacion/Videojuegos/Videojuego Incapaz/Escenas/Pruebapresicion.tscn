@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://do4n6tnxpa368"]
+
+[ext_resource type="Script" path="res://Escenas/Pruebapresicion.gd" id="1_70hbu"]
+[ext_resource type="Texture2D" uid="uid://bjk5oy1nlulgy" path="res://imagenes/CirculoPrueba.png" id="1_qxdf6"]
+[ext_resource type="Texture2D" uid="uid://dbuq5b5ss1mp0" path="res://Escenas/tornikete/TorniketeOff.png" id="4_ckukn"]
+[ext_resource type="Texture2D" uid="uid://ghhf0tuqyq2t" path="res://Escenas/tornikete/TorniketeOn.png" id="5_vm3db"]
+[ext_resource type="Texture2D" uid="uid://bwok376rg74gl" path="res://imagenes/guardia.png" id="6_fcavf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aev4b"]
+atlas = ExtResource("4_ckukn")
+region = Rect2(0, 0, 525, 379)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hu21g"]
+atlas = ExtResource("5_vm3db")
+region = Rect2(0, 0, 525, 379)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_206a0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aev4b")
+}],
+"loop": true,
+"name": &"Off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hu21g")
+}],
+"loop": true,
+"name": &"On",
+"speed": 5.0
+}]
+
+[node name="Pruebapresicion" type="Node2D"]
+script = ExtResource("1_70hbu")
+
+[node name="Guardia" type="Sprite2D" parent="."]
+position = Vector2(367, -12)
+scale = Vector2(0.801887, 0.804147)
+texture = ExtResource("6_fcavf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(277, 224)
+scale = Vector2(0.507619, 0.547493)
+sprite_frames = SubResource("SpriteFrames_206a0")
+animation = &"Off"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="StatusLabel" type="Label" parent="."]
+offset_left = 82.0
+offset_top = -107.0
+offset_right = 341.0
+offset_bottom = -50.0
+rotation = -0.523598
+theme_override_font_sizes/font_size = 26
+text = "<< ¡Marca tu huella!"
+
+[node name="SuccessArea" type="Polygon2D" parent="."]
+
+[node name="ProgressCircle" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.537255)
+position = Vector2(64, 20)
+texture = ExtResource("1_qxdf6")
+
+[node name="ProgressLine" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 1, -126)

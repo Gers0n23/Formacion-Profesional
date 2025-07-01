@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c4jwv3tsvs8ad"
+path="res://.godot/imported/espada.wav-56923cf42c226654c8b6d2555eb41489.sample"
+
+[deps]
+
+source_file="res://asset editado/bot/espada.wav"
+dest_files=["res://.godot/imported/espada.wav-56923cf42c226654c8b6d2555eb41489.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

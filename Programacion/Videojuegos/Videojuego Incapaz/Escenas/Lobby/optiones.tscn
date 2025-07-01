@@ -1,0 +1,97 @@
+[gd_scene load_steps=6 format=3 uid="uid://3llvts4aw0t"]
+
+[ext_resource type="Script" path="res://Escenas/Lobby/optiones.gd" id="1_6ijyy"]
+[ext_resource type="Texture2D" uid="uid://qr8b6mmjp7wj" path="res://Escenas/Lobby/Incapaz.jpeg" id="2_obr1l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ayfue"]
+bg_color = Color(0, 0, 0, 0.756863)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4wypp"]
+bg_color = Color(0, 0, 0, 0.819608)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ei6h1"]
+bg_color = Color(0, 0, 0, 0.721569)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="optiones" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6ijyy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_obr1l")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = 1.0
+offset_right = 206.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Volumens" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ayfue")
+text = "Wataje"
+
+[node name="Porte" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_4wypp")
+text = "Porte"
+
+[node name="Patras" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ei6h1")
+text = "Patras"
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/Volumens" to="." method="_on_plai_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Porte" to="." method="_on_optiones_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Patras" to="." method="_on_pajuera_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Patras" to="." method="_on_patras_pressed"]

@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://oabdifq0jo1k"]
+
+[ext_resource type="Texture2D" uid="uid://c6xe6mai52wwk" path="res://player/Download33920.png" id="1_n31m1"]
+[ext_resource type="Script" path="res://Escenas/player/CharacterBody2D.gd" id="1_yrx5k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mk1s3"]
+size = Vector2(79, 235.5)
+
+[sub_resource type="Animation" id="Animation_dxvle"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Download33920:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [120]
+}
+
+[sub_resource type="Animation" id="Animation_6btd0"]
+resource_name = "caminar"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Download33920:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [119, 120, 121, 122, 123, 124, 125]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rk6bk"]
+_data = {
+"RESET": SubResource("Animation_dxvle"),
+"caminar": SubResource("Animation_6btd0")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Node"]
+script = ExtResource("1_yrx5k")
+
+[node name="Download33920" type="Sprite2D" parent="Node/CharacterBody2D"]
+position = Vector2(624, 97)
+scale = Vector2(3.91406, 5.13672)
+texture = ExtResource("1_n31m1")
+hframes = 13
+vframes = 46
+frame = 120
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/CharacterBody2D"]
+position = Vector2(625.5, 132.75)
+shape = SubResource("RectangleShape2D_mk1s3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node/CharacterBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_rk6bk")
+}
