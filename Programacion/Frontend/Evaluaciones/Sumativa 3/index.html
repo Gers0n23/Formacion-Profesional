@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<head>
+    <title>INACAPLudi - Club de Juegos de Mesa y Rol</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <script src="scripts/inventory.js"></script>
+    <script src="scripts/catalogo.js"></script>
+    <script src="scripts/form.js"></script>
+    
+    
+</head>
+<body>
+
+    <!-- Cabecera de Pagina -->
+    <header>
+        <div class="container">
+            <div>
+                <h1 id="branding"><span class="highlight"><img src="assets/inacaplogo2.jpg" alt="INACAPLudi_logo" width="50" height="50">nacap Ludi</span></h1>
+            </div>
+            <nav>
+                <ul>
+                   <li>
+                    <!-- botones principales -->
+                    <div class='padre'>
+                        <a href="#" id="loginBtn"><img id="loginImg" src="assets/login_user.png" alt="INACAPLudi_logo" width="50" height="50"></a>
+                    </div>
+                    <span class="hijo2 p" id="loginText"></span>
+                    </li>
+                   <li>
+                    <div class='padre'><a href="#" id="cartBtn"><span id="cartText"></span><img id="cartImg2" src="assets/cart-9.png" alt="INACAPLudi_logo" width="50" height="50"></a>
+                    </div>
+                    <p class="hijo p"></p>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="imagen-container">
+        <div class="container">
+            <h4 id="home"></h4>
+            <img src="assets/Banner.png" alt="INACAPLudi_logo" width="1000" height="210"> 
+        </div>
+    </section>
+
+    <!-- Modulo de Login -->
+    <div id="loginModal" class="modal"> 
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm" class="containerform">
+                <div class="form-group">
+                    <label for="username">Usuario:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input class="container" type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Iniciar Sesión</button>
+                </div>
+                    <button type="submit" name="submit" onclick="location.reload();">Cerrar Sesion</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Carrito de Compras -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="catalogo">Carrito de Compras</h2>
+            <div class="containerform" id="cartItems"></div>
+            <div class="containerform totalCatalogo"  id="totalPrice"></div>
+            <button id="checkoutBtn">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- Mensaje  -->
+    <section class="aida attention">
+        <div class="container">
+            <h2 id="interest">Catálogo de Juegos</h2>
+            <h2 id="loginText"></h2>
+        </div>
+    </section>
+
+     <!-- Catalogo  -->
+    <section class="aida interest">
+        <div class="catalogo">
+            <div class="product-container">
+            </div>
+        </div>
+    </section>
+    
+    <section class="aida desire">
+        <div class="container">
+        </div>
+    </section>
+    <!-- Llamado a la accion  -->
+    <section class="aida action">
+        <div class="containerform" id="form">
+            <form id="call2action" onsubmit="return sendForm(this);">
+                <div class="container">
+                    <h2 id="action">Únete a la Aventura</h2>
+                    <h3>¿Estás listo para explorar nuevos mundos? Deja tus datos y te contactaremos.</h3>
+                </div>
+                <div class="form-group">
+                    <label for="form_name">Tu nombre:</label>
+                    <input type="text" id="form_name" name="form_name" placeholder="Tu nombre completo" required/>
+                </div>
+                <div class="form-group">
+                    <label for="form_email">e-mail:</label>
+                    <input type="email" id="form_email" name="form_email" placeholder="tu.email@example.com" required/>
+                </div>
+                <div class="form-group">
+                    <label for="form_game">Me gusta jugar:</label>
+                    <select id="form_game" name="form_game">
+                        <option value="">Selecciona el tipo de juego</option>
+                        <option value="de Cartas">Juegos de Cartas</option>
+                        <option value="Cooperativos">Juegos Cooperativos</option>
+                        <option value="Temáticos">Juegos Temáticos</option>
+                        <option value="de Estrategia">Juegos de Estrategia</option>
+                        <option value="de Aventura">Juegos de Aventura</option>
+                        <option value="de Acertijos">Juegos de Acertijos</option>
+                        <option value="Tradicionales">Juegos Tradicionales</option>
+                        <option value="de Rol">Juegos de Rol</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" name="submit"><h3>Enviar</h3></button>
+                </div>
+            </form>    
+        </div>
+        <div class="container" id="gift" style="display: none;">
+            <p><h3>
+                Gracias por enviarnos tus datos, <span id="contact_name" style="font-weight: bold;"></span>. 
+                Notamos que te apasionan los Juegos <span id="contact_game" style="font-weight: bold;"></span>. 
+                Nos contactaremos contigo a la brevedad usando tu dirección <span id="contact_email" style="font-weight: bold;"></span>.
+                </h3></p>
+            <p><h2> Y no olvides que tenemos para tí un regalo por tu interés: </h2></p>
+            <h3><a href="https://quejuegosdemesa.com/instrucciones/" target="_blank">Descarga aquí instrucciones de juegos de mesa</a></h3>
+        </div>
+    </section>
+
+    <footer>
+        <h3>InacapLudi © 2024 - By Gerson Cordero</h3>
+    </footer>
+
+    <script src="scripts/modal.js"></script>
+    <script src="scripts/cart.js"></script>
+   
+
+</body>
+</html>

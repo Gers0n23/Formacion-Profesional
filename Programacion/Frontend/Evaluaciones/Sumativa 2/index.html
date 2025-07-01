@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<head>
+<title>INACAPLudi - Club de Juegos de Mesa y Rol</title>
+<link rel="stylesheet" type="text/css" href="Styles/style.css">
+<script src="scripts/form.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div>
+                <h2 id="branding"><span class="highlight"><img src="assets/inacaplogo2.jpg" alt="INACAPLudi_logo" width="30", height="30" >nacap Ludi</span></h2>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="#action">Únete</a></li>
+                    <li><a href="#desire">Actividades</a></li>
+                    <li><a href="#interest">Catalogo de Juegos</a></li>
+                    <li class="current"><a href="#home">Inicio</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+    </header>
+
+    <section class="imagen-container">
+        <div class="container">
+            <h4 id="home"></h4>
+            <img src="assets/logo1.jpg" alt="INACAPLudi_logo" width="1000", height="410"> 
+        </div>
+    </section>
+
+    
+
+    <section class="aida attention">
+        <div class="container">
+            <h2 id="interest">¡Descubre un mundo de estrategia y creatividad!</h2>
+            
+        </div>
+    </section>
+
+    <section class="aida interest">
+        <div class="container">
+            <h1>Catalogo de Juegos</h1>
+            <p>Tenemos el mejor catalogo de juegos de Rol y estrategia disponible, descubre nuevos mundos y conecta con nuestra increible comunidad </p>
+            <div class="imagen-container2">
+                <img src="assets/game (4).jpg" alt="Juego1" width="230", height="380" >
+                <img src="assets/game (2).jpeg" alt="Juego2" width="230", height="380" > 
+                <img src="assets/game (5).jpg" alt="Juego3" width="230", height="380" > 
+                <img src="assets/game (1).jpeg" alt="Juego4" width="230", height="380" > 
+                <img src="assets/game (6).jpg" alt="Juego5" width="230", height="380" >
+
+            </div>
+        </div>
+    </section>
+
+    <section class="aida desire">
+        <div class="container">
+            <h2 id="desire">Actividades</h2>
+            <p>Participa en nuestros eventos locales y nacionales, y accede a nuestra ludoteca exclusiva.</p>
+            <p>¡Bienvenidos al universo lúdico! Somos como la biblioteca de Alejandría, pero con dados en lugar de pergaminos. Aquí, las partidas son obras de teatro, los eventos son fiestas sin reglas y las charlas son como clases de magia (sin varitas). Así que, ¿listo para lanzar los dados y unirte a la fiesta? 🎲🌟
+            </p>
+        </div>
+
+        <div class="imagen-container2">
+            <img src="assets/juegos_de_mesa1.png" alt="Actividades1" width="230", height="160">
+            <img src="assets/juegos de mesa3.jpg" alt="Actividades2" width="230", height="160" > 
+            <img src="assets/juegos de mesa4.jpg" alt="Actividades3" width="230", height="160" > 
+            <img src="assets/dados-juegos-de-rol.webp" alt="Actividades4" width="230", height="160" > 
+            <img src="assets/cosplay.jpeg" alt="Actividades5" width="230", height="160" >
+            <img src="assets/cosplay2.webp" alt="Actividades6" width="230", height="160" >
+            <img src="assets/cosplay3.jpg" alt="Actividades7" width="230", height="160" >
+            <img src="assets/cosplay4.jpg" alt="Actividades8" width="230", height="160" >
+            <img src="assets/cosplay5.jpg" alt="Actividades9" width="230", height="160" >
+            <img src="assets/juegos de mesa5.jpg" alt="Actividades10" width="230", height="160" >
+
+        </div>
+
+    </section>
+
+    <section class="aida action">
+
+          <div class="containerform" id="form">
+            <form id="call2action" onsubmit="return sendForm(this);">
+                <div class="container">
+                    <h2 id="action">Únete a la Aventura</h2>
+                    <H3>¿Estás listo para explorar nuevos mundos? Deja tus datos y te contactaremos.</H3>
+                </div>
+              <div class="form-group">
+                <label for="form_name">Tu nombre:</label>
+                <input type="text" id="form_name" name="form_name" placeholder="Tu nombre completo" required/>
+              </div>
+              <div class="form-group">
+                <label for="form_email">e-mail:</label>
+                <input type="email" id="form_email" name="form_email" placeholder="tu.email@example.com" required/>
+              </div>
+              <div class="form-group">
+                <label for="form_game">Me gusta jugar:</label>
+                <select id="form_game" name="form_game">
+                  <option value="">Selecciona el tipo de juego</option>
+                    <option value="de Cartas">Juegos de Cartas</option>
+                    <option value="Cooperativos">Juegos Cooperativos</option>
+                    <option value="Temáticos">Juegos Temáticos</option>
+                    <option value="de Estrategia">Juegos de Estrategia</option>
+                    <option value="de Aventura">Juegos de Aventura</option>
+                    <option value="de Acertijos">Juegos de Acertijos</option>
+                    <option value="Tradicionales">Juegos Tradicionales</option>
+                    <option value="de Rol">Juegos de Rol</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <button type="submit" name="submit"><h3>Enviar</h3></button>
+              </div>
+            </form>    
+          </div>
+          
+
+        <div class="container" id="gift" style="display: none;">
+            <p><h3>
+                Gracias por enviarnos tus datos, <span id="contact_name" style="font-weight: bold;"></span>. 
+                Notamos que te apasionan los Juegos <span id="contact_game" style="font-weight: bold;"></span>. 
+                Nos contactaremos contigo a la brevedad usando tu dirección <span id="contact_email" style="font-weight: bold;"></span>.
+                </h3>
+            </p>
+            <p>
+               <h2> Y no olvides que tenemos para tí un regalo por tu interés: </h2>
+            </p>
+            <h3>
+                <a href="https://quejuegosdemesa.com/instrucciones/" target="_blank">
+                    Descarga aquí instrucciones de juegos de mesa
+                </a>
+            </h3>
+        </div>
+    </section>
+
+    <footer>
+        <H3>InacapLudi © 2024 - By Gerson Cordero</H3>
+    </footer>
+</body>
+</html>

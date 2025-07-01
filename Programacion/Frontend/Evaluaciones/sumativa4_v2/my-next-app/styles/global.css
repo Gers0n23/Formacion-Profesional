@@ -1,0 +1,143 @@
+/* styles/global.css */
+
+/* Add your global styles here */
+
+/* For example: */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Añade o ajusta estilos según sea necesario */
+
+.fixed {
+  position: fixed;
+}
+
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.z-50 {
+  z-index: 50;
+}
+
+.bg-opacity-50 {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.bg-gray-900 {
+  background-color: #1a202c;
+}
+
+.relative {
+  position: relative;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.p-8 {
+  padding: 2rem;
+}
+
+.max-w-lg {
+  max-width: 32rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.top-3 {
+  top: 0.75rem;
+}
+
+.right-3 {
+  right: 0.75rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.text-gray-600 {
+  color: #718096;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.w-16 {
+  width: 4rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.p-1 {
+  padding: 0.25rem;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.rounded {
+  border-radius: 0.25rem;
+}
+
+.bg-red-500 {
+  background-color: #f56565;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.bg-blue-500 {
+  background-color: #4299e1;
+}
+.text-black {
+  color: #000000; /* Color negro para el texto */
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Compra</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css"> 
+
+</head>
+<body>
+    <h1>Confirmación de Compra</h1>
+
+
+    <!-- Datos del cliente -->
+    <section class="aida interest">
+
+        <div class="containerform" id="orderSummary">
+            <h2>Resumen de Compra</h2>
+            <!-- El resumen de la compra se agregarán aquí dinámicamente con JavaScript --> 
+        </div>
+
+        <div >
+            <div class="containerform totalCatalogo"  id="totalPrice"></div>
+        </div>
+
+        <div class="containerform">
+            <h2>Datos del Cliente</h2>
+            <form class="form-group" id="customerDetailsForm">
+                <label class="container" for="customerName">Nombre:</label>
+                <input class="container" type="text" id="customerName" name="customerName" required>
+    
+                <label class="container" for="customerAddress">Dirección de Envío:</label>
+                <input class="container" type="text" id="customerAddress" name="customerAddress" required>
+    
+                <!-- Agrega más campos según sea necesario -->
+
+                
+            </form>
+        </div>
+
+        <div  class="containerform header">
+            <h2>Datos de la Tarjeta Bancaria</h2><img src="assets/tarjetas.png" alt="INACAPLudi_logo" width="400" height="80">
+        <div class="containerform">
+            <label class="container" for="cardNumber">Número de Tarjeta:</label>
+        <input class="container" type="text" id="cardNumber" name="cardNumber" required>
+
+        <label class="container" for="expiryDate">Fecha de Expiración:</label>
+        <input class="container" type="text" id="expiryDate" name="expiryDate" placeholder="MM/AA" required>
+
+        <label class="container" for="cvv">CVV:</label>
+        <input class="container" type="text" id="cvv" name="cvv" required>
+        </div>
+        
+
+        <div class="containerform">
+        <button type="submit" name="submit" onclick="window.location.href='index.html';">Confirmar Pago</button>
+        </div>
+        </div>
+
+
+        <section class="aida interest">
+            
+        </section>
+        
+
+    </section>
+
+    <script src="scripts/cart.js"></script> <!-- Enlaza tu archivo de scripts JavaScript -->
+</body>
+</html>
+
