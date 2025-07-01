@@ -1,0 +1,59 @@
+personas = [] # Lista vacía para almacenar personas
+
+def menu(): # Función para mostrar el menú y obtener la opción del usuario
+    print("1. Agregar persona")
+    print("2. Mostrar personas")
+    print("3. Buscar persona")
+    print("4. Modificar persona")
+    print("5. Eliminar persona")
+    print("6. Salir")
+    print("")
+    opcion = int(input("Ingrese una opcion: ")) # Se solicita al usuario que ingrese una opción
+    return opcion
+
+def agregar_georeferencia(tipo): # Función para agregar una georeferencia (origen o destino)
+    georeferencia = {} # Diccionario vacío para almacenar la georeferencia
+    georeferencia['latitud'] = float(input(f"Ingrese latitud {tipo}:")) # Se solicita al usuario que ingrese la latitud de la georeferencia
+    georeferencia['longitud'] = float(input(f"Ingrese longitud {tipo}:")) # Se solicita al usuario que ingrese la longitud de la georeferencia
+    return georeferencia
+
+def agregar_persona(): # Función para agregar una persona a la lista de personas
+    persona = {} # Diccionario vacío para almacenar los datos de la persona
+    persona['nombre'] = input("Ingrese el nombre de la persona: ") # Se solicita al usuario que ingrese el nombre de la persona
+    persona['origen'] = agregar_georeferencia('origen') # Se solicita al usuario que ingrese la georeferencia de origen de la persona
+    persona['destino'] = agregar_georeferencia('destino') # Se solicita al usuario que ingrese la georeferencia de destino de la persona
+    personas.append(persona) # Se agrega el diccionario con los datos de la persona a la lista de personas
+
+def mostrar_personas(): # Función para mostrar las personas almacenadas en la lista de personas
+    for persona in personas:
+        print(persona)
+
+def buscar_persona(nombre):
+    for persona in personas:
+        if persona['nombre'] == nombre:
+            print(persona)
+
+while True:
+    opcion = menu()
+    if opcion == 1:
+        agregar_persona()
+    elif opcion == 2:
+        mostrar_personas()
+    elif opcion == 3:
+        nombre = input("Ingrese el nombre de la persona que desea buscar: ")
+        buscar_persona(nombre)
+    elif opcion == 4:
+        print("Modificar persona")
+    elif opcion == 5:
+        print("Eliminar persona")
+    elif opcion == 6:
+        print("Salir")
+        break
+    else:
+        print("Opcion incorrecta")
+    print("")
+else:
+    print("Opcion incorrecta") # Si se ingresa una opción inválida, se muestra un mensaje indicando que es incorrecta
+    print("") # Se imprime una línea en blanco para separar las opciones del menú
+
+print("Fin del programa") # Al finalizar el programa, se muestra un mensaje indicando que ha finalizado.

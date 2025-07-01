@@ -1,0 +1,46 @@
+# Ignorar carpetas de Node.js / Next.js (mantén lo que ya tenías)
+node_modules/
+.next/
+out/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignorar carpetas de Python (mantén lo que ya tenías)
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Ignorar carpetas de Java (mantén lo que ya tenías)
+target/
+.gradle/
+
+# Ignorar carpetas de .NET (mantén lo que ya tenías)
+bin/
+obj/
+
+# Ignorar archivos temporales y de sistema operativo (mantén lo que ya tenías)
+.DS_Store
+Thumbs.db
+*.log
+
+# IGNORAR CARPETA DE ASSETS DE VIDEOJUEGO (NUEVA ADICIÓN IMPORTANTE)
+Programacion/Videojuegos/Videojuego Incapaz/Asset Packs 1-5/
+
+
+# IGNORAR ARCHIVOS GRANDES Y EJECUTABLES (NUEVAS ADICIONES)
+*.exe        # Ignora todos los archivos .exe
+*.bin        # Ignora archivos binarios genéricos
+*.dmg        # Ignora instaladores de macOS
+*.iso        # Ignora imágenes de disco
+*.zip        # Ignora archivos comprimidos (si son grandes y no esenciales para el código)
+*.rar
+*.7z
+
+# Específicamente el archivo que te está dando problemas (opcional si *.exe ya lo cubre, pero útil para claridad)
+Programacion/Videojuegos/Videojuego Incapaz/Godot_v4.3-stable_win64.exe
+
+# También es buena idea ignorar la carpeta de assets si no lo hiciste antes y si son muy grandes
+Programacion/Videojuegos/Videojuego Incapaz/Asset Packs 1-5/

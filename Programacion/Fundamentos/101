@@ -1,0 +1,40 @@
+print("hola mundo")
+#esto sirve para comentar una linea
+'''Esto sirve
+para comentar
+varias lineas.
+se utiliza para documentar el codigo '''
+
+print("Ingresa tu nombre: ")
+
+minombre =input()
+
+#otra forma de leer, es dando instrucciones directamente en el input
+
+miapellido = input("ingresa tu apellido: ")
+#para imprimir las variables.
+
+print("tu nombre es:"+ minombre + " y tu apellido es:"+ miapellido)
+
+primernumero=int(input("ingresa primer numero :"))
+segundonumero=int(input("ingresa segundo numero :"))
+
+suma1=int(primernumero)+int(segundonumero)
+print("La suma de los numeros ingresados es: "+ str(suma1))
+
+estatura = float(input("ingresa tu estatura en formato 1,50: "))
+imprimir = f"otra forma de imprimir, la suma {suma1} y la estatura {estatura} por medio de format"
+imprimir2= "aca se imprime {} y el segundo valor {}".format(suma1,estatura)
+print(imprimir)
+print(imprimir2)
+
+## Uso de Format
+
+pi=3.1415927
+
+print("el valor de PI es {:.2f}".format(pi))
+print("en porcentaje seria {:.2%}".format(pi))
+print(chr(64))
+base= input("ingrese el valor de la base de un triangulo")
+altura=input("ingrese el valor de la altura de un triangulo")
+print("el area de un triangulo es :", (int(base)*int(altura))/2)

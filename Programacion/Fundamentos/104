@@ -1,0 +1,27 @@
+# Este código pide al usuario que ingrese su rut sin el dígito verificador y luego lo calcula usando el algoritmo de módulo 11.
+# Primero se guarda el rut como una cadena de caracteres en la variable Rut y se obtiene su longitud.
+Rut=input("Ingresa tu rut sin digito verificador: ")
+len(Rut)
+# Luego se inicializa la variable laserie con el valor 2, que es el primer factor de la serie 2, 3, 4, 5, 6, 7 que se usa para multiplicar los dígitos del rut de derecha a izquierda.
+laserie=2
+# También se inicializa la variable suma con el valor 0, que es donde se acumulará la suma de los productos de los dígitos del rut por la serie.
+suma=0
+# Se usa un bucle for para recorrer el rut de derecha a izquierda usando la función reversed y el índice i.
+for i in reversed(range(len(Rut))):
+    # Se imprime en pantalla la posición i, el dígito del rut en esa posición, el factor de la serie y el producto de ambos.
+    print("Mostrando Posicion",i,"\t",Rut[i],"*", laserie,"=", int(Rut[i])* laserie)
+    # Se suma el producto al acumulador suma.
+    suma=suma+(int(Rut[i])* laserie)
+    # Se incrementa el factor de la serie en 1.
+    laserie=laserie+1
+    # Si el factor de la serie supera el valor 7, se reinicia a 2.
+    if(laserie>7):
+        laserie=2
+
+# Finalmente, se calcula el resto de dividir la suma por 11 y se resta a 11 para obtener el dígito verificador.
+# Si el resultado es mayor que 9, se imprime la letra K como dígito verificador.
+if( 11-suma%11 >9):
+    print("el Digito Verificador es: K")
+# Si no, se imprime el resultado como un número.
+else:
+    print("el Digito Verificador es: "+str(11-suma%11))

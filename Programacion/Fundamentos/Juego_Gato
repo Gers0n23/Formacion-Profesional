@@ -1,0 +1,156 @@
+#mostrar matriz en formato
+'''
+1 2 3
+4 5 6
+7 8 9
+'''
+
+
+
+def Homepage ():
+    print("\t----------------------------------")
+    print("\t            MARCADOR            ")
+    print("\t           GATASTROFE 4         ")
+    print("\t           INSERT COIN          ")
+    print("\t----------------------------------")
+
+    print("        pulse cualquier tecla para iniciar")
+ 
+    print("\t----------------------------------\n")
+
+def ganador(pos_jug, act_jug):
+ 
+    comb_ganar = [["0,0", "0,1", "0,2"], ["1,0", "1,1", "1,2"], ["2,0", "2,1", "2,2"], ["0,0", "1,0", "2,0"], ["0,1", "1,1", "2,"], ["0,2", "1,2", "2,2"], ["0,0", "1,1", "2,2"], ["0,2", "1,1", "2,0"]]
+ 
+    #Loop para ver si alguna combinacion ganadora ya salió
+    for x in comb_ganar:
+        if all(y in pos_jug[act_jug] for y in x):
+ 
+            #vedadero si ya se cumplió
+            return True
+    #Falso si no se ha cumplido       
+    return False       
+
+def empate(pos_jug):
+    if len(pos_jug['X']) + len(pos_jug['O']) == 9:
+        return True
+    return False      # AQUI VOY HAY QUE REVISAR QUE ESTO FUNCIONE Y MUESTRE EL MARCADOR 
+
+def inicio():
+    import os
+
+    mimatrix=["#  ","# "," #"],["#  ","# "," #"],["#  ","# "," #"]
+    
+    print("Jugador 1")
+    namejugador1 = input("Ingrese el nombre: ")
+    jugador1=input('Jugador 1, Elija X or O:    ')
+
+    print("\n")
+
+    if(jugador1=='X'):
+        jugador2='O'
+    else:
+        jugador2='X'
+
+    print("Jugador 2")
+    namejugador2 = input("Ingrese el nombre: ")
+    print('Jugador 2, utiliza:  ',jugador2 )
+    
+    jugar(jugador1, jugador2, namejugador1, namejugador2, mimatrix)
+
+def reinicio(jugador1, jugador2, namejugador1, namejugador2):
+    import os
+
+    mimatrix=["#  ","# "," #"],["#  ","# "," #"],["#  ","# "," #"]
+    
+    jugar(jugador1, jugador2, namejugador1, namejugador2, mimatrix)
+
+
+
+
+def jugar(jugador1, jugador2, namejugador1, namejugador2,mimatrix):
+    
+    import os
+    opcion='99'
+    Jugada=1
+    print("\n")
+    pos_jug = {'X':[], 'O':[]}
+    act_jug=jugador1
+    posicion={}
+    Tablero=[]
+    posicion['celda']=10
+    posicion['ocupadopor']=''
+    Tablero.append(posicion)
+    numero=10
+    contador_victorias=[]
+
+
+    while opcion !='0':
+        os.system('cls')
+        for i in range(0,len(mimatrix)):
+            print("\n")
+            for j in range(0,len(mimatrix)):
+                print(mimatrix[i][j],end="\t")
+
+        if(Jugada==1):
+            jugadoractual=namejugador1
+        else:  
+            jugadoractual=namejugador2
+
+
+        if  ganador(pos_jug, jugador1):
+            print("\n\n¡El jugador ", jugadoractual," ha ganado!")     
+
+            reincio=input("presione 3 para reiniciar: ")
+            if  reincio=="3":
+                pos_jug.clear
+                celda.clear
+                Tablero.clear
+                print("fin")
+                reinicio(jugador1, jugador2, namejugador1, namejugador2)
+            
+        if empate(pos_jug):
+            print("Empate")
+            print("\n")
+            reincio=input("presione 3 para reiniciar: ")
+            if  reincio=="3":
+                pos_jug.clear
+                celda.clear
+                reinicio(jugador1, jugador2, namejugador1, namejugador2)
+        numero = int(input(f"\n\nJUGADOR ACTUAL: {jugadoractual} ({act_jug})\n\n¿Que espacio utilizara?: "))
+
+        if numero < 1 or numero > 9:
+            print("Ingrese un numero mayor a 1 y menor que 9")
+            continue
+       
+        fila = (numero - 1) // 3
+        columna = (numero - 1) % 3
+        opcion = str(fila) + ',' + str(columna)
+
+        print(opcion)
+        if(opcion !=0):
+            celda=opcion.split(',')
+            for posicion in Tablero:
+                if posicion['celda']==numero:
+                    print("¡No puede colocar aquí, está ocupado! Vuelva a intentarlo")
+                    continue
+                else:
+
+                    if(Jugada==1):
+                        mimatrix[int(celda[0])][int(celda[1])]=jugador1
+                        pos_jug[jugador1].append(opcion)
+
+                    else:
+                        mimatrix[int(celda[0])][int(celda[1])]=jugador2
+                        pos_jug[jugador2].append(opcion)
+
+        if(Jugada==1):
+            Jugada=2
+            act_jug=jugador2
+        else:  
+            Jugada=1
+            act_jug=jugador1
+ 
+
+Homepage()
+inicio()

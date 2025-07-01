@@ -1,0 +1,24 @@
+'''El siguiente programa, muestra el codigo ascii, dado un numero entero'''
+numero=int(input("Ingrese numero"))
+''' se inicia la variable'''
+while(numero<255): 
+        '''se ingresa en un loop'''
+        if(numero<=1 or numero==127):
+            print("ha ingresado un numero con caracter no imprimible del codigo ASCII")
+            print(numero,"\t", chr(numero))
+        else:       
+            print(numero,"\t", chr(numero))
+        numero=numero+1 
+        '''se aumenta la variable'''
+        
+        
+        
+        for i in range(1,255):
+    if(i==127):
+        print("aca me salto el numero 127")
+        continue
+        '''si i es =127 me salto el numero, si no continua'''
+    if(i==200):
+        break
+        '''cueando llega a 200, termina el ciclo'''
+    print(i,"Desde For")

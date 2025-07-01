@@ -1,0 +1,36 @@
+'''FUNCION SIN RETORNO y que invoca una variable global'''
+def sumar():
+    num1=int(input("ingrese el primer numero"))
+    num2=int(input("ingrese el segundo numero"))
+    global resultado
+    resultado = num2+num1
+    print("la suma es: ", str(resultado))
+
+print("este programa, suma 2 numeros")
+sumar()
+print("el resultado de la suma es:??? RESOLVER EL PROBLEMA???",resultado)
+
+
+'''FUNCION CON RETORNO'''
+def sumar1():
+    num1=int(input("ingrese el primer numero"))
+    num2=int(input("ingrese el segundo numero"))
+    return num1+num2
+
+'''FUNCION CON PASO DE PARAMETROS Y RETORNO DE VALORES'''
+
+variable_a=1
+Variable_b=3
+
+def sumar2(variable_a,variable_b):
+    return variable_a + variable_b
+    
+
+
+from hola import sumar, sumar2
+print ("este programa suma 2 numeros")
+sumar()
+num11=int(input("ingrese el primer numero"))
+num22=int(input("ingrese el segundo numero"))
+resultado=sumar2(num11,num22)
+print("el resultado de la suma es:??? RESOLVER EL PROBLEMA???",resultado)

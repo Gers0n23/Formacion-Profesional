@@ -1,0 +1,25 @@
+'''En esta clase, repasaremos aspectos de las variables, y a continuacion veremos
+variables'''
+
+a=123
+b=3.14
+c="Hola Mundo"
+d='Hola Mundo'
+if(a>123):
+    pass
+
+valores=[2,5,7,8,9,0,"Hola Mundo",'Otro Valor']
+print(valores[:3])#desde el principio hasta el numero 3 (excluyente)
+print(valores[2:5])#desde la posicion 2 hasta el 5 (excluyente)
+print(valores[3:])#desde la tercera posicion hasta el ultimo
+print(valores[-1])#
+largo= len(valores)#Obtiene el Largo de una variable
+print(largo)
+
+print(valores) #Muestra todos los valores de la lista
+
+Nombre=["G","E","R","S","O","N"] #Variable con mi nombre
+print(Nombre[4]) #imprime cuarta letra de ni nombre
+
+for i in reversed(range(0,len(Nombre))): #Entra en un bucle que muestra las letras de mi nombre una por una en sentido inverso, utilizando el largo como ultimo caracter
+    print("mostrando posicion",i,"\t",Nombre[i])

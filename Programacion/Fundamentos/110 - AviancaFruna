@@ -1,0 +1,84 @@
+import math
+from math import sqrt
+
+def mostrar_menu(nombre, opciones):  # incorporamos el parámetro para mostrar el nombre del menú
+    print(f'\n************ {nombre} ************ \n\nSeleccione una opción:\n')
+    for clave in sorted(opciones):
+        print(f' {clave}) {opciones[clave][0]}')
+def leer_opcion(opciones):
+    print('\n\n*****************************************')
+    while (a := input('Opción: ')) not in opciones:
+        print('Opción incorrecta, vuelva a intentarlo.')
+    return a
+
+def ejecutar_opcion(opcion, opciones):
+    opciones[opcion][1]()
+
+def generar_menu(nombre, opciones, opcion_salida):  # incorporamos el parámetro para mostrar el nombre del menú
+    opcion = None
+    while opcion != opcion_salida:
+        mostrar_menu(nombre, opciones)
+        opcion = leer_opcion(opciones)
+        ejecutar_opcion(opcion, opciones)
+        print()
+
+def menu_principal(estado):
+    
+    print(estado)
+
+    opciones = {
+        '1': ('Ingresar al sistema', menu_login),
+        '2': ('Registrarse',funcion1),
+    }
+
+    generar_menu('Sistema Volaos ', opciones, '2')  # indicamos el nombre del submenú
+
+def menu_login():
+    
+   ''' def clearConsole():
+    command = 'clear' # Aqui hay errores
+    if os.name in ('nt', 'dos'):  # If Machine is running on Windows, use cls
+        command = 'cls'
+    os.system(command)
+
+    clearConsole()
+
+    print(f'\n************ Validacion Credenciales de Acceso ************ \n\nSeleccione una opción:\n')
+
+    user=    input('ingrese usuario: '),
+    Pass=    input('ingrese contraseña: ')'''
+
+print('\n\n********************************************************')
+
+def menu_viajes():
+    opciones = {
+        '1': ('Agregar nuevo viaje', nuevo_viaje),
+        '2': ('Mostrar viajes', mostrar_viajes),
+        '3': ('Buscar un viaje',busca_viaje1),
+        '4': ('Modificar un Viaje', modifica_viaje1),
+        '5': ('Eliminar un viaje', elimina_viaje1),
+        '6': ('Ultimo Viaje', traslado_entre_viajes),
+        '7': ('Volver al menú principal', menu_principal)
+    }
+
+    generar_menu('Configuración Viajes', opciones, '7')  # indicamos el nombre del submenú
+
+def menu_resumen():
+    opciones = {
+        '1': ('Detalle viajes', mostrar_viajes),
+        '2': ('Resumen diario', resumen_viajes),
+        '3': ('Volver al menú principal', menu_principal)
+    }
+
+    generar_menu('Resumen Diario', opciones, '3')  # indicamos el nombre del submenú
+# A partir de aquí estan todas las funciones
+
+def funcion1():
+    estado='Falta Construir'
+    menu_principal('Falta Construir')
+
+def salir():
+    print('Finalizando Sesion, Hasta Pronto')
+
+if __name__ == '__main__':
+    menu_principal('') # iniciamos el programa mostrando el menú principal
